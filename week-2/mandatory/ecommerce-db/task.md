@@ -9,7 +9,52 @@ Below you will find a set of tasks for you to complete to set up a databases of 
 To submit this homework write the correct commands for each question here:
 
 ```sql
+Answers:
+1. select name , address  from customers c 
+    where country = 'United States';
 
+2. select * from customers c
+	order by name;
+
+3. select * from products p
+	where unit_price >100;
+
+4. select * from products p
+	where product_name like '%socks%';
+
+5. select * from products p
+	order by unit_price desc limit 5;
+
+6. select p.product_name ,p.unit_price ,s.supplier_name
+	from products p join suppliers s on p.supplier_id = s.id ;
+
+7. select p.product_name , s.supplier_name 
+    from suppliers s join products p on s.id = p.supplier_id 
+	where country = 'United Kingdom';
+
+8. select * from orders o 
+	where customer_id = 1;
+
+9. select * from orders o join customers c on o.customer_id = c.id 
+	where c."name" = 'Hope Crosby';
+
+10. select p.product_name ,p.unit_price , oi.quantity  from orders o 
+		join order_items oi on o.id  = oi.order_id 
+		join products p on oi.product_id = p.id
+		where o.order_reference ='ORD006';
+
+11. select c."name" , o.order_reference , o.order_date, p.product_name, s.supplier_name, oi.quantity from orders o
+		join customers c on c.id =o.customer_id
+		join order_items oi on o.id = oi.order_id
+		join products p on p.id = oi.product_id
+		join suppliers s on p.supplier_id = s.id;
+
+12. select c."name" from orders o
+		join customers c on c.id =o.customer_id
+		join order_items oi on o.id = oi.order_id
+		join products p on p.id = oi.product_id
+		join suppliers s on p.supplier_id = s.id
+		where s.country = 'China'
 
 ```
 

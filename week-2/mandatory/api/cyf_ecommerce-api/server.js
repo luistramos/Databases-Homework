@@ -25,6 +25,7 @@ app.get("/suppliers", function(req, res) {
     });
 });
 
+// Consulta todos los productos y suplidores por su nombre
 app.get("/products", function(req, res) {
     pool.query('select p.product_name , s.supplier_name from suppliers s join products p on s.id = p.supplier_id', (error, result) => { 
         res.json(result.rows);
